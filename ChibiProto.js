@@ -1,7 +1,7 @@
 var ChibiProto = {
-	create: function () {
+	construct: function () {
 		var instance = Object.create(this);
-		instance.init.apply(instance, arguments);
+		instance.constructor.apply(instance, arguments);
 		return instance;
 	},
 	extend: function (props) {

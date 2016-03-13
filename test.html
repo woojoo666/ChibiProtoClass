@@ -11,7 +11,7 @@
 	<p>see console for test results</p>
 	<script>
 	var Person = ChibiProto.extend({
-		init: function(name) {
+		constructor: function(name) {
 			this.name = "person-" + name;
 		},
 		hello: function() {
@@ -21,13 +21,13 @@
 	});
 
 	var Child = Person.extend({
-		init: function(name, age) {
+		constructor: function(name, age) {
 			this.name = "child-" + name + "-" + age + "years";
 		}
 	});
 
-	var person1 = Person.create('bob');
-	var child1 = Child.create('max', 12);
+	var person1 = Person.construct('bob');
+	var child1 = Child.construct('max', 12);
 
 	person1.hello();
 	child1.hello();

@@ -6,6 +6,7 @@
 	<script src="ChibiProto.js"></script>
 	<script src="ChibiClass.js"></script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" />
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <link rel="stylesheet" type="text/css" href="prettify.css">
 	<style>
 
@@ -31,13 +32,13 @@
 	h1 { font-size: 3rem; line-height: 1em; letter-spacing: -2px; }
 	h2 { font-size: 2rem; line-height: 1em; letter-spacing: -1px; }
 
-	pre {
+	pre.prettyprint {
 		font-family:Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
 		font-size: 0.9rem;
 		color: #eee;
 		line-height:17px;
-		padding: 1em 0;
 	}
+	pre * { tab-size: 4 }
 
 	.code-block {
 		margin-left: 10%;
@@ -52,18 +53,17 @@
 		margin-left: 10%;
 		background-color: #e0ecf5;
 		padding: 10px 0;
-		font-size: 0.9rem;
 		border-left: 5px solid #8bc2ee;
 	}
 	.log p {
 		width: 100%;
 		margin-left: 20px;
+		font-size: 0.9rem;
 	}
 
 	body { padding: 20px; }
 	table { width: 100%; }
 	p, h1, h2 { position: relative; width: 80%; margin: 10px auto; }
-	pre.prettyprint { overflow: auto !important; border: 0 !important;}
 	</style>
 </head>
 
@@ -190,7 +190,6 @@ log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 	});
 
 	</script>
-	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>

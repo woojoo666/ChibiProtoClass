@@ -4,6 +4,7 @@
 <head>
 	<title>ChibiProto Test</title>
 	<script src="ChibiProto.js"></script>
+	<script src="ChibiClass.js"></script>
 </head>
 
 <body>
@@ -20,6 +21,8 @@
 		}
 	});
 
+	Person.mProp = true;
+
 	var Child = Person.extend({
 		constructor: function(name, age) {
 			this.name = "child-" + name + "-" + age + "years";
@@ -31,6 +34,35 @@
 
 	person1.hello();
 	child1.hello();
+
+	console.log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+	</script>
+	<script>
+	var Person = ChibiClass.extend({
+		constructor: function(name) {
+			this.name = "person-" + name;
+		},
+		hello: function() {
+			console.log("hello, my name is " + this.name);
+			console.log(this);
+		}
+	});
+
+	Person.mProp = true;
+
+	var Child = Person.extend({
+		constructor: function(name, age) {
+			this.name = "child-" + name + "-" + age + "years";
+		}
+	});
+
+	var person1 = Person('bob');
+	var child1 = Child('max', 12);
+
+	person1.hello();
+	child1.hello();
+
+	console.log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 	</script>
 </body>
 

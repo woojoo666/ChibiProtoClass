@@ -2,21 +2,22 @@
 <html>
 
 <head>
-	<title>ChibiProto Test</title>
+	<title>ChibiProto and ChibiClass Tests</title>
 	<script src="ChibiProto.js"></script>
 	<script src="ChibiClass.js"></script>
 </head>
 
 <body>
 	<h1>ChibiProto Tests</h1>
-	<p>see console for test results</p>
-	<script>
+	<pre id="ChibiProtoCode">
+	log('begin ChibiProto tests');
+
 	var Person = ChibiProto.extend({
 		constructor: function(name) {
 			this.name = "person-" + name;
 		},
 		hello: function() {
-			console.log("hello, my name is " + this.name);
+			log("hello, my name is " + this.name);
 			console.log(this);
 		}
 	});
@@ -35,15 +36,20 @@
 	person1.hello();
 	child1.hello();
 
-	console.log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
-	</script>
-	<script>
+	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+	</pre>
+	<div id="ChibiProtoLog" class="log"></div>
+
+	<h1>ChibiClass Tests</h1>
+	<pre id="ChibiClassCode">
+	log('begin ChibiClass tests');
+
 	var Person = ChibiClass({
 		constructor: function(name) {
 			this.name = "person-" + name;
 		},
 		hello: function() {
-			console.log("hello, my name is " + this.name);
+			log("hello, my name is " + this.name);
 			console.log(this);
 		}
 	});
@@ -62,7 +68,36 @@
 	person1.hello();
 	child1.hello();
 
-	console.log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+	</pre>
+	<div id="ChibiClassLog" class="log"></div>
+	<script>
+	var currentlyRunning;
+
+	var tests = [
+		{
+			code: document.getElementById('ChibiProtoCode').innerHTML,
+			log: document.getElementById('ChibiProtoLog'),
+		}, {
+			code: document.getElementById('ChibiClassCode').innerHTML,
+			log: document.getElementById('ChibiClassLog'),
+		},
+	];
+
+	function log(text) {
+		var elem = document.createElement('p');
+		elem.innerHTML = text;
+		currentlyRunning.log.appendChild(elem);
+		console.log(text);
+	}
+
+	tests.forEach(function (test) {
+		currentlyRunning = test;
+		var script = document.createElement('script');
+		script.innerHTML = test.code;
+		document.body.appendChild(script);
+	});
+
 	</script>
 </body>
 

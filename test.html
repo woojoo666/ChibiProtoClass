@@ -5,90 +5,108 @@
 	<title>ChibiProto and ChibiClass Tests</title>
 	<script src="ChibiProto.js"></script>
 	<script src="ChibiClass.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="http://ryanmorr.com/wp-content/themes/coder/css/prettify.css">
+    <link rel="stylesheet" type="text/css" href="http://ryanmorr.com/wp-content/themes/coder/style.css">
+	<style>
+	body { padding: 20px; }
+	table { width: 100%; }
+	td > * { width: 80%; margin: 10px auto; }
+	pre { overflow: auto; }
+	</style>
 </head>
 
 <body>
-	<h1>ChibiProto Tests</h1>
-	<pre id="ChibiProtoCode">
-	log('begin ChibiProto tests');
+	<table>
+		<tr>
+			<td>
+				<h1>ChibiProto Tests</h1>
+				<pre id="ChibiProtoCode" class="prettyprint code-block">
+log('begin ChibiProto tests');
 
-	var Person = ChibiProto.extend({
-		constructor: function(name) {
-			this.name = name;
-		},
-		hello: function() {
-			log("hello, my name is " + this.name);
-			console.log(this);
-		},
-		askAge: function () {
-			log("How old do I look?");
-		}
-	});
+var Person = ChibiProto.extend({
+	constructor: function(name) {
+		this.name = name;
+	},
+	hello: function() {
+		log("hello, my name is " + this.name);
+		console.log(this);
+	},
+	askAge: function () {
+		log("How old do I look?");
+	}
+});
 
-	Person.mProp = true;
+Person.mProp = true;
 
-	var Child = Person.extend({
-		constructor: function(name, age) {
-			Person.constructor.call(this, name);
-			this.age = age;
-		},
-		askAge: function () {
-			log('I am ' + this.age + ' years old!');
-		}
-	});
+var Child = Person.extend({
+	constructor: function(name, age) {
+		Person.constructor.call(this, name);
+		this.age = age;
+	},
+	askAge: function () {
+		log('I am ' + this.age + ' years old!');
+	}
+});
 
-	var person1 = Person.construct('bob');
-	var child1 = Child.construct('max', 12);
+var person1 = Person.construct('bob');
+var child1 = Child.construct('max', 12);
 
-	person1.hello();
-	person1.askAge();
-	child1.hello();
-	child1.askAge();
+person1.hello();
+person1.askAge();
+child1.hello();
+child1.askAge();
 
-	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
-	</pre>
-	<div id="ChibiProtoLog" class="log"></div>
+log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+				</pre>
+				<div id="ChibiProtoLog" class="log"></div>
 
-	<h1>ChibiClass Tests</h1>
-	<pre id="ChibiClassCode">
-	log('begin ChibiClass tests');
+			</td>
+			<td>
+				<h1>ChibiClass Tests</h1>
+				<pre id="ChibiClassCode" class="prettyprint code-block">
+log('begin ChibiClass tests');
 
-	var Person = ChibiClass({
-		constructor: function(name) {
-			this.name = name;
-		},
-		hello: function() {
-			log("hello, my name is " + this.name);
-			console.log(this);
-		},
-		askAge: function () {
-			log("How old do I look?");
-		}
-	});
+var Person = ChibiClass({
+	constructor: function(name) {
+		this.name = name;
+	},
+	hello: function() {
+		log("hello, my name is " + this.name);
+		console.log(this);
+	},
+	askAge: function () {
+		log("How old do I look?");
+	}
+});
 
-	Person.mProp = true;
+Person.mProp = true;
 
-	var Child = Person.extend({
-		constructor: function(name, age) {
-			Person.constructor.call(this, name);
-			this.age = age;
-		},
-		askAge: function () {
-			log('I am ' + this.age + ' years old!');
-		}
-	});
+var Child = Person.extend({
+	constructor: function(name, age) {
+		Person.constructor.call(this, name);
+		this.age = age;
+	},
+	askAge: function () {
+		log('I am ' + this.age + ' years old!');
+	}
+});
 
-	var person1 = Person('bob');
-	var child1 = Child('max', 12);
+var person1 = Person('bob');
+var child1 = Child('max', 12);
 
-	person1.hello();
-	person1.askAge();
-	child1.hello();
-	child1.askAge();
+person1.hello();
+person1.askAge();
+child1.hello();
+child1.askAge();
 
-	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
-	</pre>
-	<div id="ChibiClassLog" class="log"></div>
+log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
+				</pre>
+				<div id="ChibiClassLog" class="log"></div>
+			</td>
+		</tr>
+	</table>
+	
 	<script>
 	var currentlyRunning;
 
@@ -117,6 +135,7 @@
 	});
 
 	</script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>

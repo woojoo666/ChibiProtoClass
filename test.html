@@ -40,14 +40,29 @@
 	}
 
 	.code-block {
+		margin-left: 10%;
 		background-color: #3f474b;
 		border-top: 5px solid #6e7b82;
 		border-bottom: 5px solid #6e7b82;
+		padding-left: 10px;
+	}
+
+	.log {
+		margin-top: 20px;
+		margin-left: 10%;
+		background-color: #e0ecf5;
+		padding: 10px 0;
+		font-size: 0.9rem;
+		border-left: 5px solid #8bc2ee;
+	}
+	.log p {
+		width: 100%;
+		margin-left: 20px;
 	}
 
 	body { padding: 20px; }
 	table { width: 100%; }
-	pre, p, h1, h2 { position: relative; width: 80%; margin: 10px auto; }
+	p, h1, h2 { position: relative; width: 80%; margin: 10px auto; }
 	pre.prettyprint { overflow: auto !important; border: 0 !important;}
 	</style>
 </head>
@@ -95,6 +110,8 @@ child1.askAge();
 
 log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 				</pre></div>
+				<br>
+				<h2>Log</h2>
 				<div id="ChibiProtoLog" class="log"></div>
 
 			</td>
@@ -138,6 +155,8 @@ child1.askAge();
 
 log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 				</pre></div>
+				<br>
+				<h2>Log</h2>
 				<div id="ChibiClassLog" class="log"></div>
 			</td>
 		</tr>

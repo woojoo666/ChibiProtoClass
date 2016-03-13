@@ -1,4 +1,4 @@
-var ChibiClass = (function createChibi (proto) {
+function ChibiClass (proto) {
 	function chibi () {
 		return chibi.construct.apply(chibi, arguments);
 	}
@@ -15,7 +15,7 @@ var ChibiClass = (function createChibi (proto) {
 				newproto[prop] = props[prop];
 			}
 		}
-		return createChibi(newproto);
+		return ChibiClass(newproto);
 	};
 	return chibi;
-})({});
+}

@@ -38,7 +38,7 @@
 	console.log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 	</script>
 	<script>
-	var Person = ChibiClass.extend({
+	var Person = ChibiClass({
 		constructor: function(name) {
 			this.name = "person-" + name;
 		},

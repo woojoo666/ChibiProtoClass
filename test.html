@@ -14,11 +14,14 @@
 
 	var Person = ChibiProto.extend({
 		constructor: function(name) {
-			this.name = "person-" + name;
+			this.name = name;
 		},
 		hello: function() {
 			log("hello, my name is " + this.name);
 			console.log(this);
+		},
+		askAge: function () {
+			log("How old do I look?");
 		}
 	});
 
@@ -26,7 +29,11 @@
 
 	var Child = Person.extend({
 		constructor: function(name, age) {
-			this.name = "child-" + name + "-" + age + "years";
+			Person.constructor.call(this, name);
+			this.age = age;
+		},
+		askAge: function () {
+			log('I am ' + this.age + ' years old!');
 		}
 	});
 
@@ -34,7 +41,9 @@
 	var child1 = Child.construct('max', 12);
 
 	person1.hello();
+	person1.askAge();
 	child1.hello();
+	child1.askAge();
 
 	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 	</pre>
@@ -46,11 +55,14 @@
 
 	var Person = ChibiClass({
 		constructor: function(name) {
-			this.name = "person-" + name;
+			this.name = name;
 		},
 		hello: function() {
 			log("hello, my name is " + this.name);
 			console.log(this);
+		},
+		askAge: function () {
+			log("How old do I look?");
 		}
 	});
 
@@ -58,7 +70,11 @@
 
 	var Child = Person.extend({
 		constructor: function(name, age) {
-			this.name = "child-" + name + "-" + age + "years";
+			Person.constructor.call(this, name);
+			this.age = age;
+		},
+		askAge: function () {
+			log('I am ' + this.age + ' years old!');
 		}
 	});
 
@@ -66,7 +82,9 @@
 	var child1 = Child('max', 12);
 
 	person1.hello();
+	person1.askAge();
 	child1.hello();
+	child1.askAge();
 
 	log('Child inherits Person.mProp? ' + (Child.mProp ? 'yes' : 'no'));
 	</pre>

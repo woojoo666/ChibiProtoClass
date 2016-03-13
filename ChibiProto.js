@@ -1,4 +1,9 @@
 var ChibiProto = {
+	create: function () {
+		var instance = Object.create(this);
+		instance.init.apply(instance, arguments);
+		return instance;
+	},
 	extend: function (props) {
 		var newproto = Object.create(this);
 		for (var prop in props) {
@@ -8,9 +13,4 @@ var ChibiProto = {
 		}
 		return newproto;
 	},
-	create: function () {
-		var instance = Object.create(this);
-		instance.init.apply(instance, arguments);
-		return instance;
-	}
 };

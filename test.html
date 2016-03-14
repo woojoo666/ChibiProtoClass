@@ -130,7 +130,7 @@ var Person = ChibiClass({
 	}
 });
 
-Person.proto.hello = function() {
+Person.prototype.hello = function() {
 	log("hello, my name is " + this.name);
 	console.log(this);
 };
@@ -139,7 +139,7 @@ Person.mProp = true;
 
 var Child = Person.extend({
 	constructor: function(name, age) {
-		Person.proto.constructor.call(this, name);
+		Person.prototype.constructor.call(this, name);
 		this.age = age;
 	},
 	askAge: function () {

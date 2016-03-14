@@ -1,7 +1,7 @@
 ChibiProto and ChibiClass
 =========================
 
-Two microscopic frameworks for simpler subclassing in javascript. These are so small (~20 lines each) that I usually just copy them into my code instead of importing the entire file. Let's see how they work!
+Two microscopic libraries for simpler subclassing in javascript. These are so small (~20 lines each) that I usually just copy them into my code instead of importing the entire file. Let's see how they work!
 
 ### ChibiProto
 

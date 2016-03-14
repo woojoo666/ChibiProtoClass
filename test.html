@@ -137,7 +137,7 @@ Person.mProp = true;
 
 var Child = Person.extend({
 	constructor: function(name, age) {
-		Person.constructor.call(this, name);
+		Person.proto.constructor.call(this, name);
 		this.age = age;
 	},
 	askAge: function () {

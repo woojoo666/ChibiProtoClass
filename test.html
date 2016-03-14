@@ -79,14 +79,15 @@ var Person = ChibiProto.extend({
 	constructor: function(name) {
 		this.name = name;
 	},
-	hello: function() {
-		log("hello, my name is " + this.name);
-		console.log(this);
-	},
 	askAge: function () {
 		log("How old do I look?");
 	}
 });
+
+Person.hello = function() {
+	log("hello, my name is " + this.name);
+	console.log(this);
+};
 
 Person.mProp = true;
 
@@ -124,14 +125,15 @@ var Person = ChibiClass({
 	constructor: function(name) {
 		this.name = name;
 	},
-	hello: function() {
-		log("hello, my name is " + this.name);
-		console.log(this);
-	},
 	askAge: function () {
 		log("How old do I look?");
 	}
 });
+
+Person.proto.hello = function() {
+	log("hello, my name is " + this.name);
+	console.log(this);
+};
 
 Person.mProp = true;
 
